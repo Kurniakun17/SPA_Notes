@@ -1,5 +1,5 @@
 import React from 'react'
-import NotesList from '../components/NotesList'
+
 
 class Add extends React.Component {
   constructor(props){
@@ -27,12 +27,11 @@ class Add extends React.Component {
       );
   }
 
-
   onSubmit(e){
     e.preventDefault();
     let title = this.state.title;
     let body = this.state.body;
-    this.props.onAddNotes(title,body);
+    this.props.onAddNotes(this.state);
   }
 
   render(){
@@ -46,8 +45,7 @@ class Add extends React.Component {
                 <input type="submit" className='add-new-page-submit'/>
             </form>
         </div>
-    </div>
-    <NotesList notes={this.props.notes}></NotesList>
+      </div>
     </div>
   );
   }

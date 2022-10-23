@@ -1,7 +1,7 @@
 import React from 'react'
 import NoteItem from './NoteItem';
 
-export default function NotesList({notes}) {
+export default function NotesList({notes, searchState}) {
   return (
     <div className='notes-list'>
       {notes === 0?
@@ -10,7 +10,7 @@ export default function NotesList({notes}) {
       </div>
       :
       notes.map((note)=>(
-        <NoteItem id={note.id} title={note.title} body={note.body} createdAt={note.createdAt}></NoteItem>
+        <NoteItem key={note.id} title={note.title} {...note}></NoteItem>
       ))}
     </div>
   )

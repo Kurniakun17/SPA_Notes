@@ -65,14 +65,15 @@ main {
   width: 90%;
   max-width: 1200px;
 }
+.home h1{
+  font-size: 50px;
+}
 
 .notes-list {
-  margin-top: 32px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
-  padding: 16px 8px;
-  border: 1px solid white;
+  padding: 16px 0;
 }
 
 .notes-list-empty {
