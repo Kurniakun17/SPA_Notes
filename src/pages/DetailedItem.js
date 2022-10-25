@@ -2,8 +2,9 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { getNote } from '../utils/local-data';
 import { showFormattedDate } from '../utils';
-import DeleteButton from './DeleteButton'
-import EditButton from './EditButton';
+import DeleteButton from '../components/DeleteButton'
+import {PropTypes} from 'prop-types'
+import EditButton from '../components/EditButton';
 
 export default function DetailedItem({DeleteNote, EditNote}) {
     const {id} = useParams();
@@ -27,8 +28,13 @@ export default function DetailedItem({DeleteNote, EditNote}) {
                     </div>
                 </div>
                 : <div className="notes-list-empty">
-                        <p>Kosong</p>
+                        <p>Tidak ada catatan</p>
                     </div>}
         </div>
     )
+}
+
+DetailedItem.propTypes={
+    DeleteNote: PropTypes.func.isRequired,
+    EditNote: PropTypes.func.isRequired,
 }

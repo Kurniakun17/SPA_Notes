@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import {PropTypes} from 'prop-types'
 
 export default function EditButton({id}) {
     return (
@@ -9,4 +10,8 @@ export default function EditButton({id}) {
             </Link>
         </div>
     )
+}
+
+EditButton.propTypes={
+    id: PropTypes.string.isRequired,
 }

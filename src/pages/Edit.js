@@ -3,6 +3,7 @@ import FormInput from '../components/FormInput';
 import { useParams } from 'react-router-dom';
 import { getNote } from '../utils/local-data';
 import { useNavigate } from 'react-router-dom';
+import {PropTypes} from 'prop-types';
 
 function EditPageWrapper({EditNote}){
   let {id} = useParams();
@@ -54,3 +55,17 @@ class Edit extends React.Component{
 }
 
 export default EditPageWrapper;
+
+EditPageWrapper.propTypes={
+  EditNote: PropTypes.func.isRequired,
+}
+
+Edit.propTypes={
+  EditNote: PropTypes.func.isRequired,
+  navigate: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  archived: PropTypes.bool.isRequired,
+}

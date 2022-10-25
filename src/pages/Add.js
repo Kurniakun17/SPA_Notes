@@ -1,6 +1,7 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Form, useNavigate } from 'react-router-dom';
 import FormInput from '../components/FormInput';
+import {PropTypes} from 'prop-types';
 
 function AddPageWrapper({onAddNotes}){
   const navigate = useNavigate();
@@ -49,3 +50,12 @@ class Add extends React.Component {
 }
 
 export default AddPageWrapper;
+
+AddPageWrapper.propTypes={
+  onAddNotes: PropTypes.func.isRequired
+}
+
+Add.propTypes={
+  navigate : PropTypes.func.isRequired,
+  onAddNotes : PropTypes.func.isRequired,
+}
