@@ -160,14 +160,21 @@ main {
   margin-top: 32px;
 }
 
-.add-new-page-submit{
+.button-container{
+  position: relative;
+  bottom:px;
+}
+
+.button{
+  display: inline-block;
   padding: 10px;
   background-color: var(--on-background-grey);
   font-weight: bold;
+  min-width: 75px;
   margin-top: 15px;
 }
 
-.add-new-page-submit:hover{
+.button:hover{
   background-color: var(--background);
   color: white;
 }

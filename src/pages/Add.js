@@ -1,5 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
+function AddPageWrapper({onAddNotes}){
+  const navigate = useNavigate();
+  return <Add navigate={navigate} onAddNotes={onAddNotes}></Add>
+}
 
 class Add extends React.Component {
   constructor(props){
@@ -29,9 +34,8 @@ class Add extends React.Component {
 
   onSubmit(e){
     e.preventDefault();
-    let title = this.state.title;
-    let body = this.state.body;
     this.props.onAddNotes(this.state);
+    this.props.navigate('/');
   }
 
   render(){
@@ -42,7 +46,7 @@ class Add extends React.Component {
             <form onSubmit={this.onSubmit}>
                 <input className='add-new-page__input__title' placeholder="Masukkan Title" value={this.state.title} onChange={this.onTitleChange}></input>
                 <textarea className='add-new-page__input__body' placeholder='Masukkan Body' value={this.state.body} onChange={this.onBodyChange}></textarea>
-                <input type="submit" className='add-new-page-submit'/>
+                <input type="submit" className='button'/>
             </form>
         </div>
       </div>
@@ -51,4 +55,4 @@ class Add extends React.Component {
   }
 }
 
-export default Add;
+export default AddPageWrapper;
