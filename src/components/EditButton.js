@@ -1,13 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export default function EditButton({id}) {
-    function onEditClick(){
-
-    }
-
     return (
         <div>
-            <input className='button' type='submit' value={'Edit'} onClick={onEditClick}></input>
+            <Link to={`/edit/${id}`}>
+                <input className='button' type='submit' value={'Edit'}></input>
+            </Link>
         </div>
     )
 }

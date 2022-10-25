@@ -22,7 +22,7 @@ export default function DetailedItem({DeleteNote, EditNote}) {
                         {note.body}
                     </p>
                     <div className='button-container'>
-                        <EditButton EditNote={EditNote}></EditButton>
+                        <EditButton id={id} EditNote={EditNote}></EditButton>
                         <DeleteButton id={id} DeleteNote={DeleteNote}></DeleteButton>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import FormInput from '../components/FormInput';
 
 function AddPageWrapper({onAddNotes}){
   const navigate = useNavigate();
@@ -41,15 +42,7 @@ class Add extends React.Component {
   render(){
     return (
     <div className='Add'>
-      <div className='add-new-page-body'>
-        <div className='add-new-page__input'>
-            <form onSubmit={this.onSubmit}>
-                <input className='add-new-page__input__title' placeholder="Masukkan Title" value={this.state.title} onChange={this.onTitleChange}></input>
-                <textarea className='add-new-page__input__body' placeholder='Masukkan Body' value={this.state.body} onChange={this.onBodyChange}></textarea>
-                <input type="submit" className='button'/>
-            </form>
-        </div>
-      </div>
+      <FormInput onSubmit={this.onSubmit} titleState={this.state.title} bodyState={this.state.body} onTitleChange={this.onTitleChange} onBodyChange={this.onBodyChange}></FormInput>
     </div>
   );
   }

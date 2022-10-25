@@ -2,11 +2,12 @@ import React from 'react';
 import {Routes, Route} from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import { getAllNotes, addNote, deleteNote} from './utils/local-data';
+import { getAllNotes, addNote, editNote} from './utils/local-data';
 import {PropTypes} from 'prop-types';
 import SearchPageWrapper  from './pages/Search';
 import DetailedItem from './components/DetailedItem';
 import AddPageWrapper from './pages/Add';
+import EditPageWrapper from './pages/Edit';
 
 class App extends React.Component {
   constructor(props){
@@ -18,6 +19,7 @@ class App extends React.Component {
 
     this.onAddNotes=this.onAddNotes.bind(this);
     this.filteredNotes = this.filteredNotes.bind(this);
+    this.onEditNote = this.onEditNote.bind(this);
     this.onDeleteNote = this.onDeleteNote.bind(this);
   }
 
@@ -28,8 +30,8 @@ class App extends React.Component {
     );
   }
 
-  onEditNote(id){
-
+  onEditNote(note){
+    editNote(note);
   }
 
   onDeleteNote(id){
@@ -54,10 +56,11 @@ class App extends React.Component {
         </header>
         <main>
           <Routes>
-            <Route path='/' element={<Home notes={this.state.notes} searchState ={this.state.search} DeleteNote={this.onDeleteNote} EditNote={this.onEditNote}></Home>}></Route>
             <Route path='/add' element={<AddPageWrapper onAddNotes={this.onAddNotes}></AddPageWrapper>}></Route>
             <Route path='/search' element={<SearchPageWrapper notes={this.state.notes} filteredNotes={this.filteredNotes} DeleteNote={this.onDeleteNote}></SearchPageWrapper>}></Route>
             <Route path='/note/:id' element={<DetailedItem DeleteNote={this.onDeleteNote} EditNote={this.onEditNote}/>}></Route>
+            <Route path='/edit/:id' element={<EditPageWrapper EditNote={this.onEditNote}></EditPageWrapper>}></Route>
+            <Route path='/' element={<Home notes={this.state.notes} searchState ={this.state.search} DeleteNote={this.onDeleteNote} EditNote={this.onEditNote}></Home>}></Route>
           </Routes>
         </main>
       </div>

@@ -22,7 +22,7 @@ export default function NoteItem({id, title, body, createdAt, DeleteNote, EditNo
             </p>
             {isSearch?"":
             <div className='button-container'>
-                <EditButton EditNote={EditNote}/>
+                <EditButton id={id} EditNote={EditNote}/>
                 <DeleteButton id={id} DeleteNote={DeleteNote}></DeleteButton>
             </div>
             }
